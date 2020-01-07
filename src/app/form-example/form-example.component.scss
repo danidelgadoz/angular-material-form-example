@@ -2,10 +2,13 @@
   display: block;
   margin: 48px 56px;
 
-  form {
+  form, fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+
     & > * {
       display: block;
-      margin-bottom: 16px;
     }
 
     .button-wrapper {
@@ -15,6 +18,7 @@
 
       button:first-child {
         margin-top: 16px;
+        margin-bottom: 8px;
       }
     }
   }

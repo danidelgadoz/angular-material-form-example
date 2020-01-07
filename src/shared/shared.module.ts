@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 
 import {
+  FormatMoneyDirective,
   OnlyObjectNameDirective,
   OnlyCharactersDirective,
   OnlyDigitsDirective,
@@ -16,6 +17,7 @@ import {
 const COMPONENTS = [];
 
 const DIRECTIVES = [
+  FormatMoneyDirective,
   OnlyAlphanumericDirective,
   OnlyCharactersDirective,
   OnlyDigitsDirective,

@@ -1,18 +1,21 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-
-    <mat-form-field>
-        <input matInput type="text" placeholder="DNI" formControlName="documentNumber" appOnlyDigits #dniElemRef>
+  <fieldset [disabled]="true">
+    <mat-form-field appearance="outline">
+      <mat-label>DNI</mat-label>
+      <input matInput type="text" placeholder="DNI" formControlName="documentNumber" appOnlyDigits #dniElemRef>
     </mat-form-field>
 
-    <mat-form-field>
-        <input matInput type="email" placeholder="Email" formControlName="email">
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" placeholder="Email" formControlName="email">
     </mat-form-field>
 
-    <mat-form-field>
-        <input matInput type="password" placeholder="Password" formControlName="password">
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" placeholder="Password" formControlName="password">
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field appearance="outline">
       <mat-label>Role</mat-label>
       <mat-select formControlName="role">
         <mat-option value="admin">Admin</mat-option>
@@ -27,5 +30,5 @@
       <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">Login</button>
       <button type="button" mat-raised-button (click)="onReset()">Reset</button>
     </div>
-
+  </fieldset>
 </form>

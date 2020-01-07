@@ -1,3 +1,4 @@
+export * from './format-money.directive';
 export * from './only-alphanumeric.directive';
 export * from './only-characters.directive';
 export * from './only-digits.directive';
