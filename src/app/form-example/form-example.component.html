@@ -1,5 +1,5 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <fieldset [disabled]="true">
+  <fieldset [disabled]="false">
     <mat-form-field appearance="outline">
       <mat-label>DNI</mat-label>
       <input matInput type="text" placeholder="DNI" formControlName="documentNumber" appOnlyDigits #dniElemRef>
