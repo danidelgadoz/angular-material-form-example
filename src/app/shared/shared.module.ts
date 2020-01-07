@@ -14,7 +14,13 @@ import {
   OnlyAddressDirective
 } from './directives';
 
-const COMPONENTS = [];
+import {
+  SliderComponent
+ } from './components';
+
+const COMPONENTS = [
+  SliderComponent
+];
 
 const DIRECTIVES = [
   FormatMoneyDirective,

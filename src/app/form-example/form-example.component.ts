@@ -28,6 +28,7 @@ export class FormExampleComponent implements AfterViewInit {
 
   private initFormBuilder(): FormGroup {
     return new FormGroup({
+      sliderItem: new FormControl({ value: 50, disabled: false }, [ ]),
       documentNumber: new FormControl({ value: null, disabled: false }, [ ]),
       email: new FormControl({ value: null, disabled: false }, [ Validators.required, Validators.email ]),
       password: new FormControl({ value: null, disabled: false }, [ Validators.required ]),

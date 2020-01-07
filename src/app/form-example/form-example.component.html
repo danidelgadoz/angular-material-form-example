@@ -1,5 +1,7 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <fieldset [disabled]="false">
+    <app-slider formControlName="sliderItem"></app-slider>
+
     <mat-form-field appearance="outline">
       <mat-label>DNI</mat-label>
       <input matInput type="text" placeholder="DNI" formControlName="documentNumber" appOnlyDigits #dniElemRef>
