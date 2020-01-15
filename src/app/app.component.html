@@ -1,7 +1,14 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>Angular Material Form example</span>
+    <span>Form examples to build WC for Angular</span>
   </mat-toolbar-row>
 </mat-toolbar>
 
-<app-form-example></app-form-example>
+<mat-tab-group>
+  <mat-tab label="Angular Material">
+    <app-form-example></app-form-example>
+  </mat-tab>
+  <mat-tab label="Ionic">
+    <app-ionic-form-example></app-ionic-form-example>
+  </mat-tab>
+</mat-tab-group>

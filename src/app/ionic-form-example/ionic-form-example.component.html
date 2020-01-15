@@ -1,0 +1,37 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <fieldset [disabled]="false">
+    <ion-item class="mb-16">
+      <ion-label position="floating">DNI</ion-label>
+      <ion-input type="text" placeholder="DNI" formControlName="documentNumber" appOnlyDigits #dniElemRef></ion-input>
+    </ion-item>
+
+    <ion-item class="mb-16">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item class="mb-16">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+    </ion-item>
+
+    <ion-item class="mb-16">
+      <ion-label>Role</ion-label>
+      <ion-select formControlName="role">
+        <ion-select-option value="admin">Admin</ion-select-option>
+        <ion-select-option value="monitor">Monitor</ion-select-option>
+        <ion-select-option value="sales">Sales</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="mb-16">
+      <ion-label>Remenber me</ion-label>
+      <ion-checkbox formControlName="rememberMe"></ion-checkbox>
+    </ion-item>
+
+    <div class="button-wrapper mt-16">
+      <ion-button type="submit" color="primary" [disabled]="form.invalid">Login</ion-button>
+      <ion-button color="light" (click)="onReset()">Reset</ion-button>
+    </div>
+  </fieldset>
+</form>
