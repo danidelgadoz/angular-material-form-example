@@ -12,6 +12,13 @@ export class FormExampleComponent implements AfterViewInit {
 
   constructor() {
     this.form = this.initFormBuilder();
+    this.form.patchValue({
+      documentNumber: 12345678,
+      email: 'dedd1993@gmail.com',
+      password: '123456',
+      role: 'admin',
+      rememberMe: false,
+    });
   }
 
   ngAfterViewInit() {
@@ -20,10 +27,6 @@ export class FormExampleComponent implements AfterViewInit {
 
   onSubmit() {
     console.log(this.form.value);
-  }
-
-  onReset() {
-    this.form.reset();
   }
 
   private initFormBuilder(): FormGroup {

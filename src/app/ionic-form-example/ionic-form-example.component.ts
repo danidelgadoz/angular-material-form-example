@@ -14,7 +14,14 @@ export class IonicFormExampleComponent implements AfterViewInit {
   constructor(
     public formBuilder: FormBuilder,
   ) {
-    this.initFormBuilder();
+    this.form = this.initFormBuilder();
+    this.form.patchValue({
+      documentNumber: 12345678,
+      email: 'dedd1993@gmail.com',
+      password: '123456',
+      role: 'admin',
+      rememberMe: false,
+    });
   }
 
   ngAfterViewInit() {
@@ -25,12 +32,8 @@ export class IonicFormExampleComponent implements AfterViewInit {
     console.log(this.form.value);
   }
 
-  onReset() {
-    this.form.reset();
-  }
-
-  private initFormBuilder() {
-    this.form = new FormGroup({
+  private initFormBuilder(): FormGroup {
+    return new FormGroup({
       documentNumber: new FormControl({ value: null, disabled: false }, [ ]),
       email: new FormControl({ value: null, disabled: false }, [ Validators.required, Validators.email ]),
       password: new FormControl({ value: null, disabled: false }, [ Validators.required ]),
