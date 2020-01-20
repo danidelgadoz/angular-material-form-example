@@ -1,0 +1,36 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <fieldset [disabled]="false">
+    <ibk-form-field>
+      <label slot="label">DNI</label>
+      <input slot="input" ibkInput type="text" formControlName="documentNumber" appOnlyDigits #dniElemRef>
+    </ibk-form-field>
+
+    <ibk-form-field>
+      <label slot="label">Email</label>
+      <input slot="input" ibkInput type="email" formControlName="email">
+    </ibk-form-field>
+
+    <ibk-form-field>
+      <label slot="label">Password</label>
+      <input slot="input" ibkInput type="password" placeholder="Password" formControlName="password">
+    </ibk-form-field>
+
+    <ibk-select [value]="currentRoleSelected" (selectionChange)="roleChanged($event)">
+      <option *ngFor="let role of roles" [value]="role.value">{{ role.label }}</option>
+    </ibk-select>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Role</mat-label>
+      <mat-select [value]="currentRoleSelected">
+        <mat-option *ngFor="let role of roles" [value]="role.value">{{ role.label }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-checkbox formControlName="rememberMe">Remenber me</mat-checkbox>
+
+    <div class="button-wrapper">
+      <ibk-button type="submit" [disabled]="form.invalid">Login</ibk-button>
+      <ibk-button type="reset">Reset</ibk-button>
+    </div>
+  </fieldset>
+</form>

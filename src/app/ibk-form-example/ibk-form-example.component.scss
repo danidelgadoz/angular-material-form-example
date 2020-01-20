@@ -1,0 +1,27 @@
+:host {
+  display: block;
+  margin: 48px 56px;
+
+  form, fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+
+    & > * {
+      display: block;
+    }
+
+    .button-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      button:first-child {
+        margin-top: 16px;
+        margin-bottom: 8px;
+      }
+    }
+  }
+}
+
+

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MaterialModule } from './material.module';
+import { IbkStyleGuideModule } from '../ibk-style-guide/ibk-style-guide.module';
 
 import {
   FormatMoneyDirective,
@@ -45,6 +46,7 @@ const UTILS = [];
     ReactiveFormsModule,
     CommonModule,
     MaterialModule,
+    IbkStyleGuideModule,
     ...COMPONENTS,
     ...DIRECTIVES,
     ...UTILS

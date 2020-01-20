@@ -7,12 +7,14 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { AppComponent } from './app.component';
 import { FormExampleComponent } from './form-example/form-example.component';
 import { IonicFormExampleComponent } from './ionic-form-example/ionic-form-example.component';
+import { IbkFormExampleComponent } from './ibk-form-example/ibk-form-example.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormExampleComponent,
-    IonicFormExampleComponent
+    IonicFormExampleComponent,
+    IbkFormExampleComponent
   ],
   imports: [
     BrowserModule,
