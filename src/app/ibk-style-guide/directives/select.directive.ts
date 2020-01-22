@@ -69,4 +69,13 @@ export class SelectDirective implements ControlValueAccessor, AfterViewInit {
     this.onTouched = fn;
   }
 
+  /**
+   * Function that is called by the forms API when the control status changes to or from 'DISABLED'.
+   * Depending on the status, it enables or disables the appropriate DOM element.
+   * @param isDisabled The disabled status to set on the element
+   */
+  setDisabledState(isDisabled: boolean): void {
+    this.ibkSelectElement.disabled = isDisabled;
+  }
+
 }
