@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {
- OnlyDigitsDirective
+ OnlyDigitsDirective,
+ SelectDirective
 } from './directives';
 
 const COMPONENTS = [];
 
 const DIRECTIVES = [
-  OnlyDigitsDirective
+  OnlyDigitsDirective,
+  SelectDirective
 ];
 
 const UTILS = [];

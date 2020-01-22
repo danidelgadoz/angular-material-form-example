@@ -15,16 +15,11 @@
       <input slot="input" ibkInput type="password" placeholder="Password" formControlName="password">
     </ibk-form-field>
 
-    <ibk-select [value]="currentRoleSelected" (selectionChange)="roleChanged($event)">
-      <option *ngFor="let role of roles" [value]="role.value">{{ role.label }}</option>
+    <ibk-select ibkSelect formControlName="role">
+      <option value="ADMIN">Admin</option>
+      <option value="MONITOR">Monitor</option>
+      <option value="SALES">Sales</option>
     </ibk-select>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Role</mat-label>
-      <mat-select [value]="currentRoleSelected">
-        <mat-option *ngFor="let role of roles" [value]="role.value">{{ role.label }}</mat-option>
-      </mat-select>
-    </mat-form-field>
 
     <mat-checkbox formControlName="rememberMe">Remenber me</mat-checkbox>
 

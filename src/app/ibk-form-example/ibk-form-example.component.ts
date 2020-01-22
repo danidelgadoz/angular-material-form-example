@@ -9,12 +9,6 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 export class IbkFormExampleComponent implements AfterViewInit {
   @ViewChild('dniElemRef', { static: false }) documentNumberElm: ElementRef;
   form: FormGroup;
-  roles = [
-    { label: 'Admin', value: 'admin' },
-    { label: 'Monitor', value: 'monitor' },
-    { label: 'Sales', value: 'sales' },
-  ];
-  currentRoleSelected = this.roles[2].value;
 
   constructor() {
     this.form = this.initFormBuilder();
@@ -22,13 +16,18 @@ export class IbkFormExampleComponent implements AfterViewInit {
       documentNumber: 12345678,
       email: 'dedd1993@gmail.com',
       password: '123456',
-      role: 'admin',
+      role: 'MONITOR',
       rememberMe: false,
     });
-  }
 
-  roleChanged(value) {
-    console.log('roleChanged...', value);
+    setTimeout(() => {
+      this.form.patchValue({
+        role: 'ADMIN',
+      });
+    }, 5000);
+    this.form.get('role').valueChanges.subscribe(value => {
+      console.log('role suscribtion', value);
+    });
   }
 
   ngAfterViewInit() {
@@ -37,8 +36,6 @@ export class IbkFormExampleComponent implements AfterViewInit {
 
   onSubmit() {
     console.log(this.form.value);
-    console.log(this.currentRoleSelected);
-
   }
 
   private initFormBuilder(): FormGroup {
