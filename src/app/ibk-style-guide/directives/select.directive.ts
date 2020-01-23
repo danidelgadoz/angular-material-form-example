@@ -38,6 +38,13 @@ export class SelectDirective implements ControlValueAccessor, AfterViewInit {
     this.ibkSelectElement.addEventListener('selectionChange', event => {
       this.onChange(event.detail);
     });
+
+    this.ibkSelectElement.addEventListener('openedChange', event => {
+      const currentValue = this.ibkSelectElement.value;
+      if (event.detail === false && (currentValue === null || currentValue === undefined)) {
+        this.onTouched();
+      }
+    });
   }
 
   ///////////////
