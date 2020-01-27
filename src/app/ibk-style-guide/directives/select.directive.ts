@@ -1,4 +1,4 @@
-import { AfterViewInit, Directive, ElementRef, forwardRef } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Directive, ElementRef, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Directive({
@@ -11,7 +11,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     }
   ]
 })
-export class SelectDirective implements ControlValueAccessor, AfterViewInit {
+export class SelectDirective implements ControlValueAccessor, AfterViewChecked, AfterViewInit {
 
   /**
    * Holds the current value of the form-control
@@ -34,6 +34,10 @@ export class SelectDirective implements ControlValueAccessor, AfterViewInit {
 
   constructor(private elRef: ElementRef) { }
 
+  ngAfterViewChecked() {
+    this.updateErrorState();
+  }
+
   ngAfterViewInit() {
     this.ibkSelectElement.addEventListener('selectionChange', event => {
       this.onChange(event.detail);
@@ -45,6 +49,16 @@ export class SelectDirective implements ControlValueAccessor, AfterViewInit {
         this.onTouched();
       }
     });
+  }
+
+  private updateErrorState() {
+    const fcClassList = [...this.elRef.nativeElement.classList];
+
+    if (fcClassList.includes('ng-touched') && fcClassList.includes('ng-invalid')) {
+      this.elRef.nativeElement.parentNode.parentNode.classList.add('form-field-error');
+    } else {
+      this.elRef.nativeElement.parentNode.parentNode.classList.remove('form-field-error');
+    }
   }
 
   ///////////////

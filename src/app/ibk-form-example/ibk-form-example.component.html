@@ -15,11 +15,15 @@
       <input slot="input" ibkInput type="password" placeholder="Password" formControlName="password">
     </ibk-form-field>
 
-    <ibk-select ibkSelect formControlName="role">
-      <option value="ADMIN">Admin</option>
-      <option value="MONITOR">Monitor</option>
-      <option value="SALES">Sales</option>
-    </ibk-select>
+    <ibk-form-field>
+      <label slot="label">Role</label>
+      <ibk-select slot="input" ibkSelect placeholder="Select a role" formControlName="role">
+        <option value="ADMIN">Admin</option>
+        <option value="MONITOR">Monitor</option>
+        <option value="SALES">Sales</option>
+      </ibk-select>
+    </ibk-form-field>
+
 
     <mat-checkbox formControlName="rememberMe">Remenber me</mat-checkbox>
 

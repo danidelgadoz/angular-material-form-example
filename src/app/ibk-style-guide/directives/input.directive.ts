@@ -22,47 +22,4 @@ export class OnlyDigitsDirective implements AfterViewChecked {
     }
   }
 
-
-  @HostListener('change', ['$event']) onchange(e) {
-    this.doMagic('change', e);
-  }
-
-  @HostListener('keydown', ['$event']) onkeydown(e) {
-    this.doMagic('keydown', e);
-  }
-
-  @HostListener('reset', ['$event']) onkeydownss(e) {
-    this.doMagic('reset', e);
-  }
-
-  @HostListener('input', ['$event']) input(e) {
-    this.doMagic('input', e);
-  }
-  @HostListener('durationchange', ['$event']) durationchange(e) {
-    this.doMagic('durationchange', e);
-  }
-  @HostListener('ended', ['$event']) ended(e) {
-    this.doMagic('ended', e);
-  }
-  @HostListener('error', ['$event']) error(e) {
-    this.doMagic('error', e);
-  }
-  @HostListener('focus', ['$event']) focus(e) {
-    this.doMagic('focus', e);
-  }
-  @HostListener('invalid', ['$event']) invalid(e) {
-    this.doMagic('invalid', e);
-  }
-  @HostListener('ratechange', ['$event']) ratechange(e) {
-    this.doMagic('ratechange', e);
-  }
-
-  @HostListener('*', ['$event']) submit(e) {
-    this.doMagic('submit', e);
-  }
-  private doMagic(eventName: string, e) {
-    // console.log(eventName, e);
-  }
-
-
 }

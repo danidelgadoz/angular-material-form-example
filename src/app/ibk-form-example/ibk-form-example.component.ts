@@ -15,21 +15,21 @@ export class IbkFormExampleComponent implements AfterViewInit {
     this.form.patchValue({
       documentNumber: 12345678,
       email: 'dedd1993@gmail.com',
-      password: '123456',
-      role: 'MONITOR',
+      // password: '123456',
+      // role: 'MONITOR',
       rememberMe: false,
     });
 
     setTimeout(() => {
-      this.form.patchValue({
-        role: 'ADMIN',
-      });
-      this.form.get('role').enable();
+      // this.form.patchValue({
+      //   role: 'ADMIN',
+      // });
+      // this.form.get('role').enable();
     }, 5000);
 
-    this.form.get('role').valueChanges.subscribe(value => {
-      console.log('role suscribtion', value);
-    });
+    // this.form.get('role').valueChanges.subscribe(value => {
+    //   console.log('role suscribtion', value);
+    // });
   }
 
   ngAfterViewInit() {
@@ -44,8 +44,8 @@ export class IbkFormExampleComponent implements AfterViewInit {
     return new FormGroup({
       documentNumber: new FormControl({ value: null, disabled: false }, [ Validators.required ]),
       email: new FormControl({ value: null, disabled: false }, [ Validators.required, Validators.email ]),
-      password: new FormControl({ value: null, disabled: true }, [ Validators.required ]),
-      role: new FormControl({ value: null, disabled: true }, [ Validators.required ]),
+      password: new FormControl({ value: null, disabled: false }, [ Validators.required ]),
+      role: new FormControl({ value: null, disabled: false }, [ Validators.required ]),
       rememberMe: new FormControl({ value: false, disabled: false }, [ ]),
     });
   }
