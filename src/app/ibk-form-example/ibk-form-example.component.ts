@@ -24,7 +24,8 @@ export class IbkFormExampleComponent implements AfterViewInit {
       // this.form.patchValue({
       //   role: 'ADMIN',
       // });
-      // this.form.get('role').enable();
+      this.form.get('password').enable();
+      this.form.get('role').enable();
     }, 5000);
 
     // this.form.get('role').valueChanges.subscribe(value => {
@@ -44,8 +45,8 @@ export class IbkFormExampleComponent implements AfterViewInit {
     return new FormGroup({
       documentNumber: new FormControl({ value: null, disabled: false }, [ Validators.required ]),
       email: new FormControl({ value: null, disabled: false }, [ Validators.required, Validators.email ]),
-      password: new FormControl({ value: null, disabled: false }, [ Validators.required ]),
-      role: new FormControl({ value: null, disabled: false }, [ Validators.required ]),
+      password: new FormControl({ value: null, disabled: true }, [ Validators.required ]),
+      role: new FormControl({ value: null, disabled: true }, [ Validators.required ]),
       rememberMe: new FormControl({ value: false, disabled: false }, [ ]),
     });
   }

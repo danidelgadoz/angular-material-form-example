@@ -15,10 +15,18 @@ export class FormExampleComponent implements AfterViewInit {
     this.form.patchValue({
       documentNumber: 12345678,
       email: 'dedd1993@gmail.com',
-      password: '123456',
-      role: 'admin',
+      // password: '123456',
+      // role: 'admin',
       rememberMe: false,
     });
+
+    setTimeout(() => {
+      // this.form.patchValue({
+      //   role: 'ADMIN',
+      // });
+      this.form.get('password').enable();
+      this.form.get('role').enable();
+    }, 5000);
   }
 
   ngAfterViewInit() {
@@ -33,8 +41,8 @@ export class FormExampleComponent implements AfterViewInit {
     return new FormGroup({
       documentNumber: new FormControl({ value: null, disabled: false }, [ ]),
       email: new FormControl({ value: null, disabled: false }, [ Validators.required, Validators.email ]),
-      password: new FormControl({ value: null, disabled: false }, [ Validators.required ]),
-      role: new FormControl({ value: null, disabled: false }, [ Validators.required ]),
+      password: new FormControl({ value: null, disabled: true }, [ Validators.required ]),
+      role: new FormControl({ value: null, disabled: true }, [ Validators.required ]),
       rememberMe: new FormControl({ value: false, disabled: false }, [ ]),
     });
   }

@@ -1,9 +1,9 @@
-import { Directive, HostListener, ElementRef, AfterViewChecked } from '@angular/core';
+import { Directive, ElementRef, AfterViewChecked } from '@angular/core';
 
 @Directive({
   selector: '[ibkInput]'
 })
-export class OnlyDigitsDirective implements AfterViewChecked {
+export class IbkInputDirective implements AfterViewChecked {
 
   constructor(private el: ElementRef) {
   }
@@ -12,13 +12,23 @@ export class OnlyDigitsDirective implements AfterViewChecked {
     this.updateErrorState();
   }
 
-  private updateErrorState() {
-    const inputClassList = [...this.el.nativeElement.classList];
+  get ibkFormField() {
+    return this.el.nativeElement.parentNode.parentNode;
+  }
 
-    if (inputClassList.includes('ng-touched') && inputClassList.includes('ng-invalid')) {
-      this.el.nativeElement.parentNode.parentNode.classList.add('form-field-error');
+  private updateErrorState() {
+    const formControlClassList = [...this.el.nativeElement.classList];
+
+    if (formControlClassList.includes('ng-touched') && formControlClassList.includes('ng-invalid')) {
+      this.ibkFormField.classList.add('form-field-error');
     } else {
-      this.el.nativeElement.parentNode.parentNode.classList.remove('form-field-error');
+      this.ibkFormField.classList.remove('form-field-error');
+    }
+
+    if (this.ibkFormField.tagName === 'IBK-FORM-FIELD' && this.el.nativeElement.disabled === true) {
+      this.ibkFormField.classList.add('form-field-disabled');
+    } else {
+      this.ibkFormField.classList.remove('form-field-disabled');
     }
   }
 
