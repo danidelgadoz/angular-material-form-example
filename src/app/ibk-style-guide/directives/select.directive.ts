@@ -49,6 +49,12 @@ export class SelectDirective extends IbkInputDirective implements ControlValueAc
         this.onTouched();
       }
     });
+    this.ibkSelectElement.addEventListener('focusout', () => {
+      const currentValue = this.ibkSelectElement.value;
+      if ((currentValue === null || currentValue === undefined)) {
+        this.onTouched();
+      }
+    });
   }
 
   ///////////////
