@@ -2,7 +2,9 @@
   <fieldset [disabled]="false">
     <ibk-form-field>
       <label slot="label">DNI</label>
+      <span slot="prefix">$&nbsp;</span>
       <input slot="input" ibkInput type="text" formControlName="documentNumber" appOnlyDigits #dniElemRef>
+      <ibk-icon slot="suffix" name="informative"></ibk-icon>
     </ibk-form-field>
 
     <ibk-form-field>
